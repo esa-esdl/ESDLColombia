@@ -1,3 +1,4 @@
+__precompile__(false)
 module ESDLColombia
 import ESDL
 
@@ -9,14 +10,14 @@ colombia_staticvars = ["Bioma_IAvH2",
  "bio_units",
  "canopy_height",
  "municipios"]
-foreach(i->push!(ESDL.CubeAPI.static_vars,i),colombia_staticvars)
+foreach(i->push!(ESDL.Cubes.ESDLZarr.static_vars,i),colombia_staticvars)
 
-ESDL.CubeAPI.known_names["Bioma_IAvH2"] = "Biome"
-ESDL.CubeAPI.known_names["municipios"]  = "Municipio"
+ESDL.Cubes.ESDLZarr.known_names["Bioma_IAvH2"] = "Biome"
+ESDL.Cubes.ESDLZarr.known_names["municipios"]  = "Municipio"
 
 biomedict = include("Bioma_IAvH2_ID.jl")
 municipiosdict = include("municipios_ID.jl")
-ESDL.CubeAPI.known_labels["Bioma_IAvH2"] = biomedict
-ESDL.CubeAPI.known_labels["municipios"]  = municipiosdict
+ESDL.Cubes.ESDLZarr.known_labels["Bioma_IAvH2"] = biomedict
+ESDL.Cubes.ESDLZarr.known_labels["municipios"]  = municipiosdict
 
 end # module
